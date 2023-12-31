@@ -1,0 +1,21 @@
+# Command to have your MongoDB server up and running while working on server
+#use ssh command for tunneling 
+ssh <yourUSERNAME>@<yourUSERNAME>.host.cs.st-andrews.ac.uk -L 24120:localhost:24120 -N ( 24120 -change to your port  )
+
+# Set up to run server
+-> Download express for node and mongodb for node 
+    npm install express
+    npm install mongodb
+    npm install --save video.js videojs-playlist
+-> make sure you have your server data base running and the values are inserted
+-> Navigate to server directory 
+# Command  // This will run server on port 8000 and will have the mongo db connected and initialised with insitial data
+../src/server> node trip-planner-server.js 
+
+To log in to the web application you can either start by registering or by using one of this login credentials 
+userEmail: "test@gmail.com", userName: "Test", password: "test@123"
+
+Hints: 
+These are the similiar commands that drops and inserts collection please uncomment as necessary initially are implemented to create and upload data.
+ .then(() => client.db().collection("favourite").drop()).then(()=>console.log("droped")) --> to delete collection
+    .then(() => insertOneStarterDataFavourites()) //--> to inset data
